@@ -10,6 +10,31 @@
 </head>
 <body>
     <h3>My Library</h3>
+    <button type="button" class="openform" onclick="openForm()">New Book</button>
+<div class="bookform" id="newbook">
+    <form action="example.com/path" method="post">
+        <h3>Add a book</h3>
+
+        <label for="title">Title:</label>
+        <input type="text" id="title" placeholder="Enter title" name="title">
+
+        <label  for="author">Author:</label>
+        <input type="text" id="author" placeholder="Enter author" name="author">
+
+
+        <label for="pages">Pages:</label>
+        <input type="number" id="pages" placeholder="Enter total number of pages" name="pages">
+
+        <label for="read">Read</label>
+        <input type="radio" id="read" name="read">
+
+        <label for="unread">Unread</label>
+        <input type="radio" id="unread" name="unread">
+
+        <button type="submit" class="btn">Submit</button>
+        <button type="button" class="cancel" onclick="closeForm()">Cancel</button>
+    </form>
+</div>
 
     <div class="bookCard">
         
