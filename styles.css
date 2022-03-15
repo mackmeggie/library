@@ -1,6 +1,45 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+.wrapper {
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+    grid-template-columns: 1 fr 4fr;
+    grid-template-areas: 
+    "heading heading"
+    "sidebar content";
+    background-color: #5daa68;
+}
+
+.heading {
+    grid-area: heading;
+    color: #3f6844;
+    background-color: #5daa68;
+    margin: 0;
+    padding-left: 30px;
+
+    font-family: 'Permanent Marker', cursive;
+    font-size: 64px;
+}
+
+.openform {
+    grid-area: heading;
+    justify-self: end;
+    align-self: center;
+    background-color: #faf1cf;
+    border-radius: 10px;
+    border-color: #3f6844;
+    border-width: 5px;
+    border-style: solid;
+    border-left: none;
+    border-top: none;
+    padding: 10px;
+    margin-right: 40px;
+}
+
 .bookCard {
-    background-color: aquamarine;
+    grid-area: content;
+    background-color: #5daa68;
     width: 600px;
     height: 600px;
 }
@@ -15,7 +54,14 @@
 
     margin: 20px;
     padding: 10px;
-    background-color: beige;
+    color:#3f6844;
+    background-color: #faf1cf;
+    border-radius: 20px;
+    border-color: #3f6844;
+    border-width: 10px;
+    border-style: solid;
+    border-left: none;
+    border-top: none;
 }
 
 .title {
