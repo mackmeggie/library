@@ -37,6 +37,21 @@
     margin-right: 40px;
 }
 
+.displaybooks {
+    grid-area: heading;
+    justify-self: end;
+    align-self: center;
+    background-color: #faf1cf;
+    border-radius: 10px;
+    border-color: #3f6844;
+    border-width: 5px;
+    border-style: solid;
+    border-left: none;
+    border-top: none;
+    padding: 10px;
+    margin-right: 150px;
+}
+
 .bookform {
     display: none;
     position: fixed;

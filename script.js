@@ -19,9 +19,7 @@ function addBook() {
     let newread = form.elements.read.value;
     let newbook = new Book(newtitle, newauthor, newpages, newread);
     myLibrary.push(newbook);
-    console.log(myLibrary);
     form.reset();
-    displayBooks(myLibrary);
 }
 
 
