@@ -10,10 +10,13 @@
 </head>
 <body>
     <div class="wrapper">
-    <p class="heading">My Library</p>
-    <button type="button" class="openform" onclick="openForm()">Add Book</button>
-<div class="bookform" id="newbook">
-    <form action="example.com/path" class="form-container" method="post">
+    
+        <p class="heading">My Library</p>
+    
+        <button type="button" class="openform" onclick="openForm()">Add Book</button>
+
+        <div class="bookform" id="newbook">
+    <form action="example.com/path" class="form-container">
         <h3>Add a book</h3>
 
         <label for="title">Title:</label>
@@ -32,8 +35,8 @@
         <label for="unread">Unread</label>
         <input type="radio" id="unread" name="unread">
 
-        <button type="submit" class="btn">Submit</button>
-        <button type="button" class="cancel" onclick="closeForm()">Cancel</button>
+        <button type="button" class="btn" onclick="addBook()" onclick="clearForm()">Submit</button>
+        <button type="button" class="cancel" onclick="closeForm()" onclick="clearForm()">Cancel</button>
     </form>
 </div>
 

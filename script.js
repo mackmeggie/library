@@ -11,9 +11,20 @@ function Book(title, author, pages, read) {
     }
 }
 
-function addBook(x) {
-    let extrabook = myLibrary.push(x)
+function addBook() {
+    let form = document.querySelector('form');
+    let newtitle = form.elements.title.value;
+    let newauthor = form.elements.author.value;
+    let newpages = form.elements.pages.value;
+    let newread = form.elements.read.value;
+    let newbook = new Book(newtitle, newauthor, newpages, newread);
+    myLibrary.push(newbook);
+    console.log(myLibrary);
+    form.reset();
+    displayBooks(myLibrary);
 }
+
+
 
 function displayBooks(myLibrary) {
     const bookCard = document.querySelector('.bookCard');
@@ -37,14 +48,6 @@ function closeForm() {
     document.getElementById('newbook').style.display = "none";
 }
     
-const alanna = new Book('Alanna: The First Adventure', 'Tamora Pierce', 295, 'Read')
-const pooh = new Book('Winnie the Pooh', 'A.A. Milne', 150, 'Read');
-const narwhal = new Book('Not Quite Narwhal', 'Jessie Sima', 62, 'Read');
-
-addBook(alanna);
-addBook(pooh);
-addBook(narwhal);
-
 displayBooks(myLibrary)
 
 

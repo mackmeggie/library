@@ -58,6 +58,8 @@
     width: 80%;
     padding: 10px;
     margin: 10px;
+    border-radius: 10px;
+    border-style: none;
 }
 
 .form-container input[type=text]:focus, .form-container input[type=number]:focus {
