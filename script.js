@@ -1,6 +1,7 @@
-
+//Library array
 let myLibrary =[];
 
+//Book object
 function Book(title, author, pages, read) {
     this.title = title
     this.author = author
@@ -11,6 +12,16 @@ function Book(title, author, pages, read) {
     }
 }
 
+//Pre-existing books in library array
+let alanna = new Book("Alanna: The First Adventure", "Tamora Pierce", 295, "read");
+myLibrary.push(alanna);
+let narwhal = new Book("Not Quite Narwhal", "Jessie Sima", 64, "Read");
+myLibrary.push(narwhal);
+let odyssey = new Book('The Odyssey', "Homer", 357, "Read");
+myLibrary.push(odyssey);
+
+//Takes form input, creates new book object and places into library array
+//Updates display to include new book
 function addBook() {
     let form = document.querySelector('form');
     let newtitle = form.elements.title.value;
@@ -20,28 +31,53 @@ function addBook() {
     let newbook = new Book(newtitle, newauthor, newpages, newread);
     myLibrary.push(newbook);
     form.reset();
+    removeCards();
+    displayBooks(myLibrary);
 }
 
 
-
+//Displays library objects in individual divs on screen
 function displayBooks(myLibrary) {
     const bookCard = document.querySelector('.bookCard');
-    myLibrary.map(input => {
+     myLibrary.forEach((input, index) => {
         let newCard = document.createElement('div');
         newCard.classList.add('book');
+        newCard.setAttribute('id', index)
         newCard.innerHTML = 
         `<p class="title">Title: ${input.title} </p>
         <p class="author">Author: ${input.author} </p>
         <p class="pages">Pages: ${input.pages} </p>
-        <p class="read">Read: ${input.read} </p>`;
-        bookCard.appendChild(newCard)
+        <p class="read">Read: ${input.read} </p>
+        <button class="remove" onclick="removeBook(${index})">Remove Book</button>`
+        
+        bookCard.appendChild(newCard)       
     });
 }
 
+function removeCards() {
+    const bookCard = document.querySelector('.bookCard');
+    const book = document.querySelectorAll('.book');
+    while (bookCard.firstChild) {
+        bookCard.lastChild.remove();
+    }
+}  
+
+//Remove individual books from library array
+const removeBook = function(something) {
+    console.log('I got something', something);
+    let remove = myLibrary.splice(something, 1);
+    removeCards();
+    displayBooks(myLibrary);
+}
+    
+
+
+//Opens hidden add book form
 function openForm() {
     document.getElementById('newbook').style.display = "block";
 }
 
+//Closes add book form
 function closeForm() {
     document.getElementById('newbook').style.display = "none";
 }
