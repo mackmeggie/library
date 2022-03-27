@@ -3,17 +3,47 @@ let myLibrary =[];
 
 //Book object
 function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
+    this.title = title,
+    this.author = author,
+    this.pages = pages,
+    this.read = read,
     this.info = function() {
-        return( `${title}, ${author}, ${pages}, ${read}`)
+        console.log( `${title}, ${author}, ${pages}, ${read}`)
     }
 }
 
+function updateLibrary() {
+    removeCards();
+    displayBooks(myLibrary);
+}
+
+//Alters read data, then updates library
+Book.prototype.changeRead = function(indexy) {
+
+    let currentStatus = document.getElementById("indexy");
+    let index = myLibrary[indexy];
+    for (read in index) {
+
+    if (this.read = read) {
+        this.read = "Unread" ;
+        console.log(this.read) 
+        currentStatus.innerHTML = "Unread"  
+    }
+    else {
+        this.read = "Read";
+        console.log(this.read)  
+        currentStatus.innerHTML = "Read" 
+    }}
+
+}
+
+function changeRead(indexy) {
+    Book.prototype.changeRead(indexy)
+}
+
+
 //Pre-existing books in library array
-let alanna = new Book("Alanna: The First Adventure", "Tamora Pierce", 295, "read");
+let alanna = new Book("Alanna: The First Adventure", "Tamora Pierce", 295, "Read");
 myLibrary.push(alanna);
 let narwhal = new Book("Not Quite Narwhal", "Jessie Sima", 64, "Read");
 myLibrary.push(narwhal);
@@ -47,13 +77,15 @@ function displayBooks(myLibrary) {
         `<p class="title">Title: ${input.title} </p>
         <p class="author">Author: ${input.author} </p>
         <p class="pages">Pages: ${input.pages} </p>
-        <p class="read">Read: ${input.read} </p>
-        <button class="remove" onclick="removeBook(${index})">Remove Book</button>`
-        
+        <p class="read" id="read">Read: ${input.read} </p>
+        <button class="remove" onclick="removeBook(${index})">Remove Book</button>
+        <button id ="status" onclick="changeRead(${index})">Change Read Status</button>`
         bookCard.appendChild(newCard)       
     });
 }
 
+
+//Remove all books from display
 function removeCards() {
     const bookCard = document.querySelector('.bookCard');
     const book = document.querySelectorAll('.book');
@@ -63,14 +95,12 @@ function removeCards() {
 }  
 
 //Remove individual books from library array
-const removeBook = function(something) {
-    console.log('I got something', something);
-    let remove = myLibrary.splice(something, 1);
+const removeBook = function(indexy) {
+    console.log('I got something', indexy);
+    let remove = myLibrary.splice(indexy, 1);
     removeCards();
     displayBooks(myLibrary);
 }
-    
-
 
 //Opens hidden add book form
 function openForm() {
@@ -81,7 +111,7 @@ function openForm() {
 function closeForm() {
     document.getElementById('newbook').style.display = "none";
 }
-    
-displayBooks(myLibrary)
+   
 
+displayBooks(myLibrary)
 
