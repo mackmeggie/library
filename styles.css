@@ -82,7 +82,7 @@
     outline:#3f6844 solid;
 }
 
-.form-container .btn, .form-container .cancel {
+.form-container .btn, .form-container .cancel{
     background-color: #3f6844;
     color:#faf1cf;
     padding: 15px;
@@ -100,7 +100,6 @@
     grid-area: content;
     background-color: #5daa68;
     width: 600px;
-    height: 600px;
 }
 
 .book {
@@ -137,4 +136,14 @@
 
 .read {
     grid-area: read;
+}
+
+.status, .remove {
+    background-color: #3f6844;
+    color:#faf1cf;
+    padding: 15px;
+    border-radius: 20px;
+    border: none;
+    width: 90%;
+    margin: 10px; 
 }

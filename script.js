@@ -17,22 +17,21 @@ function updateLibrary() {
     displayBooks(myLibrary);
 }
 
-//Alters read data, then updates library
+//Alters read data
 Book.prototype.changeRead = function(indexy) {
 
-    let currentStatus = document.getElementById("indexy");
     let index = myLibrary[indexy];
     for (read in index) {
 
     if (this.read = read) {
         this.read = "Unread" ;
         console.log(this.read) 
-        currentStatus.innerHTML = "Unread"  
+        toggleStatusUnread(indexy)
     }
     else {
         this.read = "Read";
         console.log(this.read)  
-        currentStatus.innerHTML = "Read" 
+        toggleStatusRead(indexy)
     }}
 
 }
@@ -41,6 +40,17 @@ function changeRead(indexy) {
     Book.prototype.changeRead(indexy)
 }
 
+function toggleStatusUnread(indexy) {
+    let id = indexy 
+    let index = document.getElementById(`read${id}`);
+    index.innerHTML = "Read: Unread";
+}
+
+function toggleStatusRead(indexy) {
+    let id = indexy 
+    let index = document.getElementById(`read${id}`);
+    index.innerHTML = "Read: Read";
+}
 
 //Pre-existing books in library array
 let alanna = new Book("Alanna: The First Adventure", "Tamora Pierce", 295, "Read");
@@ -77,9 +87,9 @@ function displayBooks(myLibrary) {
         `<p class="title">Title: ${input.title} </p>
         <p class="author">Author: ${input.author} </p>
         <p class="pages">Pages: ${input.pages} </p>
-        <p class="read" id="read">Read: ${input.read} </p>
+        <p class="read" id="read${index}">Read: ${input.read} </p>
         <button class="remove" onclick="removeBook(${index})">Remove Book</button>
-        <button id ="status" onclick="changeRead(${index})">Change Read Status</button>`
+        <button class ="status" onclick="changeRead(${index})">Change Read Status</button>`
         bookCard.appendChild(newCard)       
     });
 }
@@ -114,4 +124,5 @@ function closeForm() {
    
 
 displayBooks(myLibrary)
+
 
