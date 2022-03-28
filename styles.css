@@ -92,7 +92,7 @@
     margin: 10px;  
 }
 
-.form-container .cancel:hover {
+.form-container .cancel:hover, .remove:hover {
     background-color: red;
 }
 

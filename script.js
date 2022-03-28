@@ -12,44 +12,25 @@ function Book(title, author, pages, read) {
     }
 }
 
-function updateLibrary() {
-    removeCards();
-    displayBooks(myLibrary);
-}
-
 //Alters read data
-Book.prototype.changeRead = function(indexy) {
+Book.prototype.changeRead = function() {
 
-    let index = myLibrary[indexy];
-    for (read in index) {
-
-    if (this.read = read) {
+    if (this.read === "Read") {
         this.read = "Unread" ;
         console.log(this.read) 
-        toggleStatusUnread(indexy)
     }
     else {
         this.read = "Read";
         console.log(this.read)  
-        toggleStatusRead(indexy)
-    }}
-
+    }
+    removeCards();
+    displayBooks(myLibrary);
 }
 
-function changeRead(indexy) {
-    Book.prototype.changeRead(indexy)
-}
-
-function toggleStatusUnread(indexy) {
-    let id = indexy 
-    let index = document.getElementById(`read${id}`);
-    index.innerHTML = "Read: Unread";
-}
-
-function toggleStatusRead(indexy) {
-    let id = indexy 
-    let index = document.getElementById(`read${id}`);
-    index.innerHTML = "Read: Read";
+function changeRead() {
+    myLibrary.forEach(Book => {
+        Book.changeRead();
+    })
 }
 
 //Pre-existing books in library array
@@ -75,7 +56,6 @@ function addBook() {
     displayBooks(myLibrary);
 }
 
-
 //Displays library objects in individual divs on screen
 function displayBooks(myLibrary) {
     const bookCard = document.querySelector('.bookCard');
@@ -89,7 +69,7 @@ function displayBooks(myLibrary) {
         <p class="pages">Pages: ${input.pages} </p>
         <p class="read" id="read${index}">Read: ${input.read} </p>
         <button class="remove" onclick="removeBook(${index})">Remove Book</button>
-        <button class ="status" onclick="changeRead(${index})">Change Read Status</button>`
+        <button class ="status" onclick="changeRead()">Change Read Status</button>`
         bookCard.appendChild(newCard)       
     });
 }
