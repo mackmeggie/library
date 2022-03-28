@@ -13,8 +13,8 @@ function Book(title, author, pages, read) {
 }
 
 //Alters read data
-Book.prototype.changeRead = function() {
-
+Book.prototype.changeRead = function(indexy) {
+    
     if (this.read === "Read") {
         this.read = "Unread" ;
         console.log(this.read) 
@@ -27,10 +27,12 @@ Book.prototype.changeRead = function() {
     displayBooks(myLibrary);
 }
 
-function changeRead() {
-    myLibrary.forEach(Book => {
-        Book.changeRead();
-    })
+function changeRead(indexy) {
+    let index = myLibrary[indexy]
+    myLibrary.forEach ((Book, index) => {
+        if (indexy === index){
+        Book.changeRead(index);
+    }})
 }
 
 //Pre-existing books in library array
@@ -69,7 +71,7 @@ function displayBooks(myLibrary) {
         <p class="pages">Pages: ${input.pages} </p>
         <p class="read" id="read${index}">Read: ${input.read} </p>
         <button class="remove" onclick="removeBook(${index})">Remove Book</button>
-        <button class ="status" onclick="changeRead()">Change Read Status</button>`
+        <button class ="status" onclick="changeRead(${index})">Change Read Status</button>`
         bookCard.appendChild(newCard)       
     });
 }
