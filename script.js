@@ -13,7 +13,7 @@ function Book(title, author, pages, read) {
 }
 
 //Alters read data
-Book.prototype.changeRead = function(indexy) {
+Book.prototype.changeRead = function() {
     
     if (this.read === "Read") {
         this.read = "Unread" ;
@@ -28,7 +28,6 @@ Book.prototype.changeRead = function(indexy) {
 }
 
 function changeRead(indexy) {
-    let index = myLibrary[indexy]
     myLibrary.forEach ((Book, index) => {
         if (indexy === index){
         Book.changeRead(index);
